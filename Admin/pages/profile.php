@@ -9,7 +9,7 @@
 <body>
 <center>
     <div class="box">
-        <img class="profile_img" src="img/profile_img.png" id="thePFP">
+        <img class="profile_img" src="/escho.png" id="thePFP">
         <div class="Profile-pic-div">
           <input type="file" class="file" id="file" accept="image/*" style="cursor: pointer">
           <label for="file">EDIT PIC</label>
