@@ -1,0 +1,185 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+#date{
+    width:100%;
+}
+/* Apply a dark theme */
+.table {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Alternating row colors */
+  .table tr:nth-child(even) {
+    background-color: #444;
+  }
+  
+  /* Header styling */
+  .table th {
+    font-weight: bold;
+    color: #ffcc00; /* Distinct header color */
+  }
+  
+  /* Subtle shadows */
+  .table {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hover effects */
+  .table tr:hover {
+    background-color: #555;
+  }
+  
+  /* Icons for editing and deleting entries */
+  .table .edit-icon::before {
+    content: "\f044"; /* Font Awesome edit icon */
+    margin-right: 5px;
+  }
+  
+  .table .delete-icon::before {
+    content: "\f1f8"; /* Font Awesome trash icon */
+    margin-right: 5px;
+  }
+  
+.container {
+    display: flex; /* Use flexbox for layout */
+}
+
+.sidebar {
+    background-color: #313847; /* A dark, modern color */
+    color: #fff;
+    width: 200px;
+    padding: 20px;
+    position: fixed;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: width 0.3s ease;
+    z-index: 100; /* Ensure sidebar stays on top */
+}
+
+.sidebar li:hover {
+    background-color: rgb(0, 33, 46);
+}
+
+.sidebar-header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+ 
+
+.sidebar-header .logo {
+    width: 80px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu .menu-item {
+    margin-bottom: 15px;
+}
+
+.sidebar-menu .menu-item a {
+    display: block;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.sidebar-menu .menu-item a i {
+    margin-right: 10px;
+}
+
+.sidebar-menu .menu-item.active a {
+    background-color: #333;
+    color: #fff;
+}
+.main-content {
+    flex-grow: 1; /* Allow main content to grow */
+    padding: 20px;
+    margin-left: 20%;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(11, 3, 59, 0.1);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #dfad0a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838; /* Darker green */
+}
+
+.attendance-list {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(13, 1, 60, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+li a{
+    color: rgb(36, 39, 51);
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}

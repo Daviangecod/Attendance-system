@@ -1,0 +1,180 @@
+<?php
+// Your existing code for form processing (validation, database insertion, etc.)
+
+if ($_SERVER['REQUEST_METHOD'] !== "POST") {
+    // Redirect to an appropriate error page (e.g., invalid request)
+    header('Location: ../../signAdmin.php?error=invalidrequest');
+    exit;
+} else {
+    // Process form data (name, email, password, role, etc.)
+
+    // Assuming you have already inserted the user record into the database
+
+    // Redirect based on the user's role
+    if ($role === 'admin') {
+        // Replace 'admin-dashboard.php' with your actual admin dashboard URL
+        header('Location: admin-dashboard.php');
+        exit;
+    } elseif ($role === 'student') {
+        // Replace 'student-dashboard.php' with your actual student dashboard URL
+        header('Location: student-dashboard.php');
+        exit;
+    }
+}
+?>
+
+<form action="action2.php" method="POST">
+
+                     <div>
+                            <?php
+                                // if the get request query key "error"is set
+                                
+                                if(isset($_GET['error']) && isset($_GET['message'])):
+                            
+                            ?>
+
+                            <?php
+                                // if the error query key has value empty fields
+
+                                if($_GET['error'] == "emptyfields"):
+                            
+                            ?>
+
+                            <div>
+                            
+                            <?= $_GET['message']; ?>
+                            </div>
+
+                            <?php endif ?>
+
+                            <?php endif ?>
+                    </div>
+
+                <h1 class="att">Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>Or use your email for registration</span>
+                <input type="text" placeholder="Name" name="name">    
+                <input type="email" placeholder="Email" name="email">    
+                <input type="password" placeholder="Password" name="password"> 
+                <button>Sign Up</button>   
+        
+    </form>
+    </div>
+    <?php
+// Start the session
+session_start();
+
+// Assuming you have a database connection (you mentioned MySQL), and a 'user' table with columns 'username' and 'password'
+require __DIR__."/../config/database.php";
+
+// If the login form is submitted
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    // Assign posted values to variables
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Check if the values exist in the database
+    $query = "SELECT * FROM `user` WHERE email ='$email' AND password='$password'";
+    $result = mysql_query($query) or die(mysql_error());
+    $count = mysql_num_rows($result);
+
+    // If the login credentials match, create a session for the user
+    if ($count == 1) {
+        $_SESSION['email'] = $email;
+        header("location: dashboard.php"); // Redirect to the dashboard
+        exit; // Important: Stop executing further code
+    } else {
+        // If the login credentials don't match, show an error message
+        echo "Invalid Login Credentials.";
+    }
+}
+?> -->
+<?php
+// Start the session
+session_start();
+
+// Assuming you have a database connection (you mentioned MySQL), and a 'signup' table with columns 'email' and 'password'
+require __DIR__."/../config/database.php";
+
+// If the login form is submitted
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    // Assign posted values to variables
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Check if the values exist in the database
+    $query = "SELECT * FROM signup WHERE email ='$username' AND password='$password'";
+
+   
+
+    // Check for connection errors
+    if ($connection->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Execute the query
+    $result = $connection->query($query);
+
+    // Check if the query was successful
+    if ($result) {
+        $count = $result->num_rows;
+
+        // If the login credentials match, create a session for the user
+        if ($count == 1) {
+            $_SESSION['username'] = $username;
+            header("location: dashboard.php"); // Redirect to the dashboard
+            exit; // Important: Stop executing further code
+        } else {
+            // If the login credentials don't match, show an error message
+            echo "Invalid Login Credentials.";
+        }
+    } else {
+        echo "Error executing query: " . $connection->error;
+    }
+
+  
+}
+
+$connection->close();
+
+?>
+
+<?php
+require __DIR__."/../config/database.php"; // Adjust the path to your database configuration file
+
+if ($_SERVER['REQUEST_METHOD'] !== "POST") {
+    // Redirect if the request method is not POST
+    header("Location: ../signupStudents.php?error=invalidrequest");
+    exit();
+} else {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Generate a unique salt (you can use a better method for generating salts)
+    $salt = uniqid();
+
+    // Hash the password with the salt
+    $hashedPassword = password_hash($password . $salt, PASSWORD_BCRYPT);
+
+    // Store the user data in the database
+    $query = "INSERT INTO signup (username, email, password, salt) VALUES ('$username', '$email', '$hashedPassword', '$salt')";
+
+    // Execute the query
+    $result = mysqli_query($connection, $query);
+
+    if ($result) {
+        // Registration successful, redirect to the dashboard
+        header("Location: dashboard.php?success=1");
+        exit();
+    } else {
+        // If registration fails, handle the error (e.g., display an error message)
+        echo "Registration failed. Please try again.";
+    }
+}
+
+?>
