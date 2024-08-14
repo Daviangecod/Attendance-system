@@ -64,12 +64,44 @@ require __DIR__."/../../config/database.php";
                 </div>
                 <div class="header-right">
                     <div class="profile">
-                        <a href="#"><img src="escho.png" alt="Profile" class="profile-image"></a>
-                        <span>Admin</span>
+                        <a href="profile.php"><img src="escho.png" alt="Profile" class="profile-image"></a>
+                        <span>profile</span>
                     </div>
                 </div>
                 </header>
 </div>
+
+<div class="createStud">
+<h3>Add Student's information</h3>
+                <form action="actionStud.php" method="POST">
+                    <div class="left">
+                <label for="number">Reg. No.</label>
+                <input type="text" placeholder="student reg. no.">
+
+                <label for="name">Name</label>
+                <input type="text" placeholder="Enter student's name">
+
+                <label for="gender">Gender</label>
+                <input type="text" placeholder="Gender ex: female">
+                </div>
+                
+                    <div class="right">
+                <label for="department">Department</label>
+                <input type="text" placeholder="Enter student's department">
+
+                <label for="batch">Batch</label>
+                <input type="text" placeholder="Batch ex: batch14">
+
+                <label for="semester">Semester</label>
+                <input type="text" placeholder="semester">
+                </div>
+
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter student's email">
+                <button>Submit</button>
+                </form>
+</div>
+<div class="table-container">
 <div class="attendance-list">
                 <h2>Student Records</h2>
                 <table name="attendanceTable"id="attendanceTable">
@@ -102,6 +134,8 @@ require __DIR__."/../../config/database.php";
             <?php endif?>
                     </tbody>
                 </table>
+            </div>
+            </div>
             </div>
 </body>
 </html>
