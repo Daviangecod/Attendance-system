@@ -3,65 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eschosys Signup</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Welcome to Our Company</title>
+    <link rel="stylesheet" href="welcome.css"> 
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <img src="3.jpg" alt="Eschosys">
-        </div>
-        <h1>Join as a Student or an Admin</h1>
-
-        <div class="role-options">
-            <div class="option client">
-                <div class="icon">
-                    <img src="1.jpg" alt="Client Icon">
-                </div>
-                <p>I'm a Student</p>
+    <header>
+        <div class="container-list">
+            <div class="logo">
+            <img src="escho.png" alt="Logo" class="logo">
             </div>
-            <div class="option freelancer active">
-                <div class="icon">
-                    <img src="2.jpg" alt="Freelancer Icon">
-                </div>
-                <p>I'm an Administrator</p>
-            </div>
+            <nav>
+                <ul>
+                    <li><a href="join.php">Login</a></li>
+                    <li><a href="register.php">Register</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
+    </header>
 
-        <button class="button" id="applyButton">Sign up</button>
-
-    </div>
-
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome</h1>
+            <h2>To Eschosys Technology</h2>
+            <p>Eschosys technologies <br>
+            the live of hands-on experience 
+            </p>
+            <button class="learn-more">Learn More</button>
+        </div>
+        
+    </section>
+    <div class="img">
+            <img src="vector/b.png" alt="">
+        </div>
     <script>
-        const clientOption = document.querySelector('.option.client');
-const freelancerOption = document.querySelector('.option.freelancer');
-const applyButton = document.getElementById('applyButton');
+        const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav ul');
 
-// Add event listeners for role selection
-clientOption.addEventListener('click', () => {
-    clientOption.classList.add('active');
-    freelancerOption.classList.remove('active');
-    applyButton.textContent = 'I am a Student';
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    nav.classList.toggle('active');
 });
 
-freelancerOption.addEventListener('click', () => {
-    freelancerOption.classList.add('active');
-    clientOption.classList.remove('active');
-    applyButton.textContent = 'I am an Admin';
-});
-
-// Add event listener for the apply button
-applyButton.addEventListener('click', () => {
-    // Redirect to the appropriate signup page based on the selected role
-    if (freelancerOption.classList.contains('active')) {
-        // Replace 'freelancer-signup.html' with your actual freelancer signup page URL
-        window.location.href = 'Admin/signupAdmin.php';
-    } else {
-        // Replace 'client-signup.html' with your actual client signup page URL
-        window.location.href = 'Students/signupStudents.php';
-    }
-});
-
-    </script>
+    </script> 
 </body>
 </html>

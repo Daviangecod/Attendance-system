@@ -75,7 +75,7 @@
                     <a href="pages/totalStud.php"><div class="widget">
                         <div class="widget-header">
                         <i class="fa fa-users" aria-hidden="true"></i>
-                            <h3>Total Students</h3>
+                            <h3>View Students</h3>
                         </div>
                         <div class="widget-body">
                             
@@ -118,7 +118,7 @@
                     <a href=""><div class="widget">
                         <div class="widget-header">
                         <i class="fas fa-chart-line"></i>
-                            <h3>View Students</h3>
+                            <h3>Attendance</h3>
                         </div>
                         <div class="widget-body">
                             

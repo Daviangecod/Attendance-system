@@ -9,6 +9,7 @@ require __DIR__."/../../config/database.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Total Students</title>
     <link rel="stylesheet" href="totalStud.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 <body>
 
@@ -19,7 +20,7 @@ require __DIR__."/../../config/database.php";
             </div>
             <ul class="sidebar-menu">
                 <li class="menu-item active">
-                    <a href="dashboard.php">
+                    <a href="../dashboard.php">
                     <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -75,29 +76,23 @@ require __DIR__."/../../config/database.php";
 <h3>Add Student's information</h3>
                 <form action="actionStud.php" method="POST">
                     <div class="left">
-                <label for="number">Reg. No.</label>
-                <input type="text" placeholder="student reg. no.">
-
-                <label for="name">Name</label>
+                
                 <input type="text" placeholder="Enter student's name">
 
-                <label for="gender">Gender</label>
+                <input type="text" placeholder="student reg. no.">
+                
                 <input type="text" placeholder="Gender ex: female">
+
+                <input type="email" placeholder="Enter student's email">
+                
                 </div>
                 
                     <div class="right">
-                <label for="department">Department</label>
-                <input type="text" placeholder="Enter student's department">
+                
+                <input type="text" placeholder="Batch ex: batch1">
 
-                <label for="batch">Batch</label>
-                <input type="text" placeholder="Batch ex: batch14">
-
-                <label for="semester">Semester</label>
-                <input type="text" placeholder="semester">
                 </div>
 
-                <label for="email">Email</label>
-                <input type="email" placeholder="Enter student's email">
                 <button>Submit</button>
                 </form>
 </div>

@@ -2,23 +2,6 @@
     box-sizing: border-box;
 }
 
-.login {
-    display: flex;
-    align-items: center;
-}
-.login label {
-    margin-right: 10px;
-}
-.login input[type="radio"] {
-    margin-right: 5px;
-}
-.text p{
-    margin-top: 80px;
-    font-size: 20px;
-    margin-bottom: 50px;
-    margin-right: 20px;
-    display: inline-block;
-}
 
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -114,7 +97,6 @@ button{
     text-transform: uppercase;
     transition: transform 88ms ease-in;
 }
-
 button:hover{
     background-color: rgb(177, 115, 1);
 }
@@ -145,14 +127,9 @@ button.ghost{
     z-index: 2;
 }
 
-.sign-up-container{
-    left: 0;
-    width: 50%;
-    opacity: 0;
-    z-index: 1;
-}
 
-.overlay-container{ 
+
+ .overlay-container{ 
     position: absolute;
     top: 0;
     left: 50%;
@@ -198,36 +175,13 @@ button.ghost{
 
 .overlay-left{
     transform: translateX(-20%);
-} 
+}  
 
 /* Animation */
 
 /* move signin to the right */
-.container.right-panel-active .sign-in-container{
+/* .container.right-panel-active .sign-in-container{
     transform: translateX(100%);
-}
+} */
 
 /* move overlay to left */
-.container.right-panel-active .overlay-container{
-    transform: translateX(-100%);
-}
-
-/* bring signup over signin */
-.container.right-panel-active .sign-up-container{
-    transform: translateX(100%);
-    opacity: 1;
-    z-index: 5;
-}
-
-/* move overlay back to right */ 
-.container.right-panel-active .overlay{
-    transform: translateX(50%);
-}
-
-.container.right-panel-active .overlay-left{
-    transform: translateX(0);
-}
-
-.container.right-panel-active .overlay-right{
-    transform: translateX(20%);
-}

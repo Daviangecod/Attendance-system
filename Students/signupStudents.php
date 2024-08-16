@@ -20,53 +20,8 @@
 <body>
 
     <div class="container" id="container">
-       <div class="form-container sign-up-container">
-            <form action="action.php" method="POST" onsubmit="return validateForm()">
-
-                     <div>
-                            <?php
-                                // if the get request query key "error"is set
-                                
-                                if(isset($_GET['error']) && isset($_GET['message'])):
-                            
-                            ?>
-
-                            <?php
-                                // if the error query key has value empty fields
-
-                                if($_GET['error'] == "emptyfields"):
-                            
-                            ?>
-
-                            <div>
-                            
-                            <?= $_GET['message']; ?>
-                            </div>
-
-                            <?php endif ?>
-
-                            <?php endif ?>
-                    </div>
-
-                <h1 class="att">Create Account</h1>
-
-                <input type="hidden" name="role" value="student">
-
-                <div class="social-container">
-                <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href="#" class="social"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                    <a href="#" class="social"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                </div>
-                <span>Or use your email for registration</span>
-                <input type="text" placeholder="Username" name="username" required>    
-                <input type="email" placeholder="Email" name="email" required>    
-                <input type="password" placeholder="Password" name="password" required> 
-                <button>Sign Up</button>   
-        
-    </form>
-    </div>
     <div class="form-container sign-in-container">
-        <form action="login.php" method="POST" onsubmit="return validateForm()" onclick="checkAvailabilty()">
+        <form action="login.php" method="POST" onsubmit = "return validateForm()" onclick="return validateLogin()">
 
                         <div>
                             <?php
@@ -94,8 +49,6 @@
                     </div>
 
             <h1 class="att">Sign in</h1>
-
-            <input type="hidden" name="role" value="student">
     
             <div class="social-container">
                     <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -103,25 +56,19 @@
                     <a href="#" class="social"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                 </div>
                 <span>Or use your account</span>    
-                <input type="text" placeholder="Username" name="username" required>    
+                <input type="text" placeholder="Username" name="username" required>   
                 <input type="password" placeholder="Password" name="password" required> 
-                <a href="password/forgotPassWd.php">Forgot your password?</a>
+                <a href="password/recover.php">Forgot your password?</a>
                 <button>Sign In</button>
         </form>
     </div>
         <div class="overlay-container">
             <div class="overlay">
-                <div class="overlay-panel overlay-left">
+                <div class="overlay-panel overlay-right">
                     <h1 class="att">Welcome Back!</h1>
                     <p>
                         To keep connected with us please login <br>with your personal info
                     </p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1 class="att">Hello, Friend!</h1>
-                    <p>Enter your personal details</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
                 </div>
             </div>
         </div>
@@ -131,7 +78,6 @@
 
         alert('Hello Student');
 
-        const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
     

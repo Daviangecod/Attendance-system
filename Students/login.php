@@ -28,7 +28,7 @@ else {
 
 
         // Check username in database
-        $query = "SELECT * FROM signup WHERE username = '$username'";
+        $query = "SELECT * FROM signin WHERE username = '$username'";
         $result = mysqli_query($connection, $query);
 
         // Check the result if you recieved any value from the database

@@ -230,12 +230,6 @@ h3{
     justify-content: center;
 }
 
-label {
-    margin-left: 2%;
-    display: block;
-    margin-bottom: 10px;
-}
-
 input[type="text"], select {
     width: 44%;
     padding: 10px;
@@ -253,23 +247,25 @@ input[type="date"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-input[type="email"] {
+.left input[type="email"] {
     width: 44%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-left: 2%;
+    border: none;
+    border-bottom: 1px solid purple;
 }
 
-/* .left input[type="text"] {
+ .left input[type="text"] {
     width: 44%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-left: 2%;
-} */
+} 
 
 button {
     background-color: #dfad0a;
@@ -287,17 +283,21 @@ button:hover {
     background-color: #573c03;
 }
 
-/* .right{
+ .right{
     margin-top: -258px;
 }
 
 .right input[type="text"]{
     margin-left: 51%;
 }
+.right input[type="email"]{
+    margin-left: 51%;
+}
 
 .right label{
     margin-left: 51%;
-} */
+} 
+
 
 
 
