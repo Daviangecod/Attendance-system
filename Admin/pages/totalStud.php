@@ -110,7 +110,7 @@ require __DIR__."/../../config/database.php";
                     <tbody>
                         <?php 
                         
-                        $query= 'SELECT * FROM signup';
+                        $query= 'SELECT * FROM signin';
                         $result= mysqli_query($connection, $query);
                         ?>
                     <?php if(mysqli_num_rows($result)>0):?>

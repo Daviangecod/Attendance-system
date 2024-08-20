@@ -67,12 +67,12 @@ li{
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: rgb(252, 251, 251);
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #fff; /* Adjust hover color */
+    color: #080808; /* Adjust hover color */
     text-decoration: underline;
 }
 
