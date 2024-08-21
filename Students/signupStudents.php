@@ -1,11 +1,5 @@
 <?php
-// // A logged in user cannot access this page
-// session_start();
-// require "./helper/redirect.php";
 
-// if(isset($_SESSION['loginID'])) {
-//     redirect('dashboard.php');
-// }
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +52,7 @@
                 <span>Or use your account</span>    
                 <input type="text" placeholder="Username" name="username" required>   
                 <input type="password" placeholder="Password" name="password" required> 
-                <a href="password/recover.php">Forgot your password?</a>
+                <a href="password/forgotPassWd.php">Forgot your password?</a>
                 <button>Sign In</button>
         </form>
     </div>

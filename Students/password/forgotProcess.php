@@ -1,21 +1,35 @@
 <?php
-// forgot-process.php
-if (isset($_POST['forgot-btn'])) {
-    $email = $_POST['email'];
+require __DIR__."/../config/database.php";
 
-    // Generate a random token (you can use a better method)
-    $token = bin2hex(random_bytes(32));
-
-    // Insert email and token into the password_reset table
-    // (Assuming you have a database connection)
-    $query = "INSERT INTO passwordreset (email, token) VALUES ('$email', '$token')";
-    // Execute the query here
-
-    // Send an email to the user with the reset link
-    $resetLink = "https://yourwebsite.com/reset-password.php?token=$token";
-    $message = "Click the link below to reset your password:\n$resetLink";
-    mail($email, "Password Reset", $message);
-
-    echo "Password reset link sent to your email!";
+// Check connection
+if ($connection->connect_error) {
+  die("Connection failed: " . $connection->connect_error);
 }
+
+// Check if the reset link is valid
+if (isset($_GET['token']) && !empty($_GET['token'])) {
+  $token = $_GET['token'];
+
+  // Check if the token exists in the database
+  $sql = "SELECT * FROM signin WHERE reset_token = '$token' AND reset_token_expiry > NOW()";
+  $result = $connection->query($sql);
+
+  if ($result->num_rows > 0) {
+    // Token is valid
+    $row = $result->fetch_assoc();
+    $user_id = $row['user_id']; 
+
+    // Redirect to a reset password form (replace with your actual form URL)
+    header("Location: reset_password.php?user_id=$user_id");
+    exit;
+  } else {
+    // Invalid token
+    echo "Invalid or expired reset link.";
+  }
+} else {
+  // No token provided
+  echo "Reset link not provided.";
+}
+
+$connection->close();
 ?>

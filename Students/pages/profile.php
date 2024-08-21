@@ -34,9 +34,13 @@
                 class="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full  ">
                 Notifications
             </a>
-            <a href="#"
+            <a href="logout.php"
                 class="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full  ">
-                PRO Account
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" color="#000000" fill="none">
+    <path d="M15 17.625C14.9264 19.4769 13.3831 21.0494 11.3156 20.9988C10.8346 20.987 10.2401 20.8194 9.05112 20.484C6.18961 19.6768 3.70555 18.3203 3.10956 15.2815C3 14.723 3 14.0944 3 12.8373L3 11.1627C3 9.90561 3 9.27705 3.10956 8.71846C3.70555 5.67965 6.18961 4.32316 9.05112 3.51603C10.2401 3.18064 10.8346 3.01295 11.3156 3.00119C13.3831 2.95061 14.9264 4.52307 15 6.37501" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M21 12H10M21 12C21 11.2998 19.0057 9.99153 18.5 9.5M21 12C21 12.7002 19.0057 14.0085 18.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+                Logout
             </a>
         </div>
     </aside>
@@ -70,7 +74,7 @@
                                     first name</label>
                                 <input type="text" id="first_name"
                                     class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                    placeholder="Your first name" value="Jane" required>
+                                    placeholder="Your first name" value="" required>
                             </div>
 
                             <div class="w-full">
@@ -79,7 +83,7 @@
                                     last name</label>
                                 <input type="text" id="last_name"
                                     class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                    placeholder="Your last name" value="Ferguson" required>
+                                    placeholder="Your last name" value="" required>
                             </div>
 
                         </div>
@@ -95,7 +99,7 @@
 
                         <div class="mb-2 sm:mb-6">
                             <label for="profession"
-                                class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">Profession</label>
+                                class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">Field of study</label>
                             <input type="text" id="profession"
                                 class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                                 placeholder="your profession" required>
