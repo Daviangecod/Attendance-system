@@ -1,20 +1,32 @@
 <?php
 
-// connection variables
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "attendance";
+function dbConnect()
+{
+    $dbConfig = [
 
+// connection variables
+        'hostname' = "localhost";
+        'username' = "root";
+        'password' = "";
+        'database' = "attendance";
+    ];
 
 // connect to database
-$connection = mysqli_connect($hostname, $username, $password, $database);
+$connection = mysqli_connect(
+    $dbConfig['host'],
+    $dbConfig['username'],
+    $dbConfig['password'],
+    $dbConfig['database']
+);
 
 
 // check if connection is succesful
-if($connection == false){
+if($connection){
     // stop everything and show error
-    die("Connection error" . mysqli_connect_error());
+    die("Connection failed:" . mysqli_connect_error());
 }
 
+return $connection;
+
+}
 ?>

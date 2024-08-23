@@ -1,29 +1,13 @@
 
 <?php
 require __DIR__."/../config/database.php";
+require __DIR__."../helper/redirect.php";
 
-// Check connection
-if (isset($_SESSION['id'])) {
-  $id = $_SESSION['id'];
 
-  // Fetch the batch number from the database
-  $sql = "SELECT batch FROM signin WHERE id = $id";
-  $result = $connection->query($sql);
-
-  if ($result->num_rows > 0) {
-      $row = $result->fetch_assoc();
-      $batch = $row['batch'];
-  } else {
-      $batch = "Not Found"; 
-  }
-
-} else {
-  // ... (Login redirection code) ...
-  echo "Batch number not found.";
+if(!isset($_SESSION['loginID']) && !isset($_SESSION['username'])){
+  redirect('signupStudents.php');
 }
 
-
-$connection->close();
 ?>
 
 

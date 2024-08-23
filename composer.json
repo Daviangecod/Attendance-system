@@ -1,0 +1,15 @@
+{
+    "name": "lenovo/project1",
+    "autoload": {
+       "files": [
+            "includes/funtions.php"
+       ]
+    },
+    "authors": [
+        {
+            "name": "DataDavinci",
+            "email": "davidaebenda@gmail.com"
+        }
+    ],
+    "require": {}
+}
