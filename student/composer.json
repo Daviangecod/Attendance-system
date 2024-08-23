@@ -1,0 +1,15 @@
+{
+    "name": "lenovo/student",
+    "autoload": {
+        "psr-4": {
+            "Lenovo\\Student\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DataDavinci",
+            "email": "davidaebenda@gmail.com"
+        }
+    ],
+    "require": {}
+}
