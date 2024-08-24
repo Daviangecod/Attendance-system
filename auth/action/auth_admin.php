@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] !== "POST") {
     $error = [
         'error' => "invalidrequest"
     ];
-    redirect('signupAdmin.php', $error);
+    redirect('../login_admin.php', $error);
 }
 else {
 
@@ -22,7 +22,7 @@ else {
             'error' => "emptyvalues"
         ];
         
-        redirect('signupAdmin.php', $error);
+        redirect('../login_admin.php', $error);
     }
     else {
 
@@ -51,13 +51,13 @@ else {
                     'success' => "loginsuccess"
                 ];
                 
-                redirect('dashboard.php', $message);
+                redirect('../../admin/dashboard.php', $message);
             }
             else {
                 $error = [
                     'error' => "invalidcredentials"
                 ];
-                redirect('signupAdmin.php', $error);
+                redirect('../login_admin.php', $error);
 
             }
             
@@ -66,7 +66,7 @@ else {
             $error = [
                 'error' => "invalidcredentials"
             ];
-            redirect('signupAdmin.php', $error);
+            redirect('../login_admin.php', $error);
         }
 
 

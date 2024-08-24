@@ -1,21 +1,23 @@
 <?php
-
+    
+   
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signupStudents.css">
+    <link rel="stylesheet" href="signupAdmin.css">
     <title>Attendance system</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
-
-    <div class="container" id="container">
+    <div class="container">
     <div class="form-container sign-in-container">
-        <form action="login.php" method="POST" onsubmit = "return validateForm()" onclick="return validateLogin()">
+        <form action="action/auth_admin.php" method="POST" onsubmit = "return validateForm()" onclick="return validateLogin()">
 
                         <div>
                             <?php
@@ -52,7 +54,7 @@
                 <span>Or use your account</span>    
                 <input type="text" placeholder="Username" name="username" required>   
                 <input type="password" placeholder="Password" name="password" required> 
-                <a href="password/forgotPassWd.php">Forgot your password?</a>
+                <a href="password/recover.php">Forgot your password?</a>
                 <button>Sign In</button>
         </form>
     </div>
@@ -68,25 +70,14 @@
         </div>
     
     </div>
-    <script>
-
-        alert('Hello Student');
-
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
-    
-        signUpButton.addEventListener('click', () =>
-        container.classList.add('right-panel-active'));
-
-        signInButton.addEventListener('click', () =>
-        container.classList.remove('right-panel-active'));
+     <script>
+        alert('Hello Admin, please sign in with your personal details');
 
         function validateForm() {
-            const email = document.getElementById('email').value;
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (!email || !password || !name) {
+            if (!usrname || !password) {
                 alert('Please fill in all fields.');
                 return false;
             }
@@ -96,47 +87,21 @@
             return true;
         }
 
-        // function checkAvailability() {
-        //     const username = document.getElementById('username').value;
-        //     const email = document.getElementById('email').value;
+        function validateLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-        //     // Send an AJAX request to a PHP file
-        //     const xhr = new XMLHttpRequest();
-        //     xhr.open('POST', 'checkAvailability.php', true);
-        //     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        //     xhr.onreadystatechange = function () {
-        //         if (xhr.readyState === 4 && xhr.status === 200) {
-        //             document.getElementById('availability-message').textContent = xhr.responseText;
-        //         }
-        //     };
-        //     xhr.send(`username=${username}&email=${email}`);
-        // }
-
-        function checkAvailability(inputField, dataType) {
-  var username = document.getElementById('username').value;
-  var email = document.getElementById('email').value;
-
-  if (username && email) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'checkAvailability.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        var response = xhr.responseText;
-
-        if (response === 'taken') {
-          alert(dataType + ' is already taken.');
-          inputField.value = ''; // Clear the input field
-        } else {
-          //  Username or email is available
-        }
-      }
-    };
-    xhr.send('username=' + username + '&email=' + email + '&dataType=' + dataType);
-  } else {
-    alert('Please fill in both username and email fields.');
-  }
+    // Check if username and password are valid (you can customize this logic)
+    if (username === 'EschosysTech' && password === 'eschosys@123') {
+        // Successful login (redirect or other actions)
+        console.log('Login successful!');
+        alert('Login succesful!')
+    } else {
+        // Invalid credentials, display an error message
+        document.getElementById('error-message').textContent = 'Invalid username or password.';
+    }
 }
-    </script>
+
+    </script> 
 </body>
 </html>

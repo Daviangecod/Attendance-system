@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] !== "POST") {
     $error = [
         'error' => "invalidrequest"
     ];
-    redirect('signupStudents.php', $error);
+    redirect('../login_student.php', $error);
 }
 else {
 
@@ -22,7 +22,7 @@ else {
             'error' => "emptyvalues"
         ];
         
-        redirect('signupStudents.php', $error);
+        redirect('../login_student.php', $error);
     }
     else {
 
@@ -51,13 +51,13 @@ else {
                     'success' => "loginsuccess"
                 ];
                 
-                redirect('dashboard.php', $message);
+                redirect('../../student/dashboard.php', $message);
             }
             else {
                 $error = [
                     'error' => "invalidcredentials"
                 ];
-                redirect('signupStudents.php', $error);
+                redirect('../login_student.php', $error);
 
             }
             

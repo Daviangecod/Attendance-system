@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <form action="action.php" method="POST">
+    <form action="action/create_admin.php" method="POST">
         <!-- component -->
 <div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
   <div class="container max-w-screen-lg mx-auto">
@@ -43,16 +43,6 @@
               <div class="md:col-span-5">
                 <label for="email">Email Address</label>
                 <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
-              </div>
-
-              <div class="md:col-span-3">
-                <label for="address">Batch</label>
-                <input type="text" name="batch" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="ex:batch1" />
-              </div>
-
-              <div class="md:col-span-2">
-                <label for="city">Gender</label>
-                <input type="text" name="gender" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="ex:female" />
               </div>
 
               <div class="md:col-span-2">

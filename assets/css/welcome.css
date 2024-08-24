@@ -1,0 +1,153 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #ffffff; /* Blue background */
+    color: rgb(0, 0, 0);
+    background-image: url("vector/w.jpg"); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    margin-top: -90px;
+}
+
+img{
+    height: 350px;
+    margin-left: 60%;
+    margin-top: -50%;
+    width: 500px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.container-list {
+    margin-left: 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgb(240, 166, 6);
+}
+
+.logo {
+    height: 140px;
+    width: 150px;
+   
+}
+.logo img {
+    height: 100px;
+    width: 110px;
+    margin-top: 50%;
+    margin-left: -270%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 60px;
+}
+
+li{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(252, 251, 251);
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #080808; /* Adjust hover color */
+    text-decoration: underline;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 0;
+   
+}
+
+h1 {
+    font-size: 58px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.learn-more {
+    background-color: #007bff; 
+    color: #fff; /* Blue text */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.learn-more:hover {
+    background-color: #092583;
+}
+
+/* Responsive Navigation (Menu Toggle) */
+.menu-toggle {
+    display: none; /* Hide by default */
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    margin: 5px 0;
+    transition: transform 0.3s;
+}
+
+/* Responsive Navigation (Menu Toggle) */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide navigation on mobile */
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}

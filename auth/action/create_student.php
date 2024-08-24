@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__."../config/database.php";
+require __DIR__."../../config/database.php";
 require __DIR__."/Students/helper/redirect.php";
 
 
@@ -12,7 +12,6 @@ else{
 $fullname = $_POST['fullname'];
 $username = $_POST['username'];
 $email = $_POST['email'];
-$batch = $_POST['batch'];
 $gender = $_POST['gender'];
 $password = $_POST['password'];
 
@@ -23,7 +22,7 @@ $password = $_POST['password'];
     VALUES(value1, value2, value3,...)
     */
 
-    if(empty($username) || empty($password) || empty($email) || empty($fullname) || empty($batch) || empty($gender)) {
+    if(empty($username) || empty($password) || empty($email) || empty($fullname) || empty($gender)) {
         $error = [
             'error' => "emptyvalues"
         ];
@@ -37,7 +36,7 @@ $password = $_POST['password'];
 
         // Create Users
 
-        $query = "INSERT INTO signin(fullname, username, email, batch, gender, password) VALUES('$fullname','$username', '$email', '$batch', 'gender', '$hashedPassword')";
+        $query = "INSERT INTO signin(fullname, username, email,  gender, password) VALUES('$fullname','$username', '$email',  '$gender', '$hashedPassword')";
 
         $result = mysqli_query($connection, $query);
 

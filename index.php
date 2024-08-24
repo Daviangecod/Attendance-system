@@ -1,10 +1,15 @@
+<?php $pageTitle = "Welcome page"; ?>
+
+<?php require_once __DIR__ . '/templates/footer.php'; ?>
+<?php require_once __DIR__ . '/templates/header.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Our Company</title>
-    <link rel="stylesheet" href="welcome.css"> 
+    <link rel="stylesheet" href="assets/css/welcome.css"> 
 </head>
 <body>
     <header>
