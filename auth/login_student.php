@@ -16,13 +16,6 @@
 
 
             <h1 class="att">Sign in</h1>
-
-            <div class="social-container">
-                <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#" class="social"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                <a href="#" class="social"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            </div>
-            <span>Or use your account</span>
             <input type="email" placeholder="Email Address" name="email" required>
             <input type="password" placeholder="Password" name="password" required>
             <a href="password/forgotPassWd.php">Forgot your password?</a>

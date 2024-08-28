@@ -9,7 +9,7 @@ if(!function_exists("getConfig")){
             $siteConfig = [
                 'site_name' => "EAMS",
                 'app_mode' => "production",
-                'base_url' => "http://localhost/Attendance-system/",
+                'base_url' => "http://localhost/Attendance-system",
                 'base_path' => dirname(__DIR__, 1)
             ];
 

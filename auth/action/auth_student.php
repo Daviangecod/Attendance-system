@@ -17,7 +17,7 @@ else {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if(empty($username) || empty($password)) {
+    if(empty($email) || empty($password)) {
         $error = [
             'error' => "emptyfields"
         ];
@@ -33,7 +33,7 @@ else {
         // Check the result if you recieved any value from the database
         if(mysqli_num_rows($result) !== 0) {
         
-            $user = mysqli_fetch_assoc($result, MYSQLI_ASSOC); // Getting the users records as an associative array
+            $user = mysqli_fetch_assoc($result); // Getting the users records as an associative array
 
             $hashedPassword = $user['password']; // Get the user's hashed password
 
@@ -53,10 +53,10 @@ else {
                     // Get students first and last name and save in the session
 
                     $query = "SELECT * FROM students WHERE user_id = $userId";
-                    $result = mysqli_query($connection, $result);
+                    $result = mysqli_query($connection, $query);
 
                     if(mysqli_num_rows($result) !== 0) {
-                        $student = mysqli_fetch_assoc($result, MYSQLI_ASSOC);
+                        $student = mysqli_fetch_assoc($result);
                         $_SESSION['fullname'] = $student['first_name'] . " " . $student['last_name'];
                     }
 
