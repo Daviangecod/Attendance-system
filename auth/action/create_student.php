@@ -1,14 +1,14 @@
 <?php
 
-require __DIR__."../../config/database.php";
-require __DIR__."/Students/helper/redirect.php";
+require_once __DIR__."/../../vendor/autoload.php";
+require_once __DIR__."/../../includes/db_connect.php";
 
 
 if($_SERVER['REQUEST_METHOD'] !== "POST"){
     redirect(path: "register.php", query:["error" => "invalidrequest"]);
 }
 else{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 $fullname = $_POST['fullname'];
 $username = $_POST['username'];
 $email = $_POST['email'];

@@ -11,22 +11,20 @@ function dbConnect()
         'database' => "attendance"
     ];
 
-// connect to database
-$connection = mysqli_connect(
-    $dbConfig['host'],
-    $dbConfig['username'],
-    $dbConfig['password'],
-    $dbConfig['database']
-);
+    // connect to database
+    $connection = mysqli_connect(
+        $dbConfig['hostname'],
+        $dbConfig['username'],
+        $dbConfig['password'],
+        $dbConfig['database']
+    );
 
 
-// check if connection is succesful
-if($connection){
-    // stop everything and show error
-    die("Connection failed:" . mysqli_connect_error());
+    // check if connection is succesful
+    if (!$connection) {
+        // stop everything and show error
+        die("Connection failed:" . mysqli_connect_error());
+    }
+
+    return $connection;
 }
-
-return $connection;
-
-}
-?>
