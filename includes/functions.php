@@ -19,7 +19,7 @@ if(!function_exists("siteName")){
 if(!function_exists("basePath")){
     function basePath(string $path = null){
         if($path !== null){
-            return grtConfig(key: 'base_path') . "/" . $path;
+            return getConfig(key: 'base_path') . "/" . $path;
         }
 
         return getConfig(key: 'base_path');
