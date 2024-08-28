@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mer. 28 août 2024 à 14:11
--- Version du serveur : 10.4.27-MariaDB
--- Version de PHP : 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Aug 28, 2024 at 06:39 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,309 +18,173 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `attendance`
+-- Database: `attendance`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admin`
+-- Table structure for table `admins`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `admins` (
   `id` int(10) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `user_id` int(11) UNSIGNED NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Déchargement des données de la table `admin`
---
-
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', '1234'),
-(2, 'admin', '1234'),
-(3, 'EschosysTech', 'eschosys@123'),
-(4, 'EschosysTech', 'eschosys@123'),
-(5, 'EschosysTech', 'eschosys@123'),
-(6, 'admin', '123'),
-(7, 'EschosysTech', 'eschosys@123'),
-(8, 'admin', '123'),
-(9, 'admin', '12344'),
-(10, 'EschosysTech', 'eschosys'),
-(11, 'admin', '1233'),
-(12, 'EschosysTech', 'eschosys@123'),
-(13, 'admin', '2'),
-(14, 'admin', '23'),
-(15, 'admin', '123'),
-(16, 'EschosysTech', 'eschosys@123'),
-(17, 'EschosysTech', 'eschosy'),
-(18, 'EschosysTech', 'e'),
-(19, 'EschosysTech', 'e'),
-(20, 'EschosysTech', 'e'),
-(21, 'EschosysTech', 'e'),
-(22, 'EschosysTech', 'es'),
-(23, 'EschosysTech', 'es'),
-(24, 'EschosysTech', 'w'),
-(25, 'EschosysTech', 's'),
-(26, 'EschosysTech', 's'),
-(27, 'EschosysTech', '3'),
-(28, 'EschosysTech', 'w'),
-(29, 'a', '1'),
-(30, 'EschosysTech', 'eschosys@123'),
-(31, 'EschosysTech', 'eschosys@123'),
-(32, 'EschosysTech', 'eschosys@123'),
-(33, 'EschosysTech', 'eschosys@123'),
-(34, 'EschosysTech', 'eschosys@123'),
-(35, 'EschosysTech', 'eschosys@123'),
-(36, 'EschosysTech', 'eschosys@123'),
-(37, 'EschosysTech', 'eschosys@123'),
-(38, 'EschosysTech', 'eschosys@123'),
-(39, 'EschosysTech', 'eschosys@123'),
-(40, 'EschosysTech', 'eschosys@123'),
-(41, 'EschosysTech', 'eschosys@123'),
-(42, 'EschosysTech', 'eschosys@123'),
-(43, 'EschosysTech', 'eschosys@123'),
-(44, 'EschosysTech', 'eschosys@123'),
-(45, 'EschosysTech', 'eschosys\"123'),
-(46, 'EschosysTech', 'eschosys@123'),
-(47, 'EschosysTech', 'eschosys@123'),
-(48, 'EschosysTech', 'eschosys@123'),
-(49, 'Eschosys Tech', 'eschosys@123'),
-(50, 'Eschosys Tech', 'eschosys@123'),
-(51, 'Eschosys Tech', 'eschosys@123'),
-(52, 'Eschosys Tech', 'eschosys@123'),
-(53, 'Eschosys Tech', '12'),
-(54, 'Eschosys Tech', '12'),
-(55, 'EschosysTech', '12'),
-(56, 'EschosysTech', '12');
-
 -- --------------------------------------------------------
 
 --
--- Structure de la table `adminsessions`
+-- Table structure for table `batches`
 --
 
-CREATE TABLE `adminsessions` (
+CREATE TABLE `batches` (
   `id` int(10) NOT NULL,
-  `adminusername` varchar(255) NOT NULL,
-  `password` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Déchargement des données de la table `adminsessions`
---
-
-INSERT INTO `adminsessions` (`id`, `adminusername`, `password`) VALUES
-(1, 'EschosysTech', 'eschosys@123');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `attends`
---
-
-CREATE TABLE `attends` (
-  `id` int(10) NOT NULL,
-  `name` text NOT NULL,
-  `attendance` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp()
+  `name` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `attends`
+-- Dumping data for table `batches`
 --
 
-INSERT INTO `attends` (`id`, `name`, `attendance`, `date`) VALUES
-(14, 'favour', 'Absent', '2024-08-02 15:39:18'),
-(15, 'Martha', 'Present', '2024-08-02 15:39:18'),
-(16, 'Sylia', 'Absent', '2024-08-02 15:39:18'),
-(17, 'jhsd', 'Present', '2024-08-02 15:39:41'),
-(18, 'marth', 'Present', '2024-08-12 22:00:00'),
-(19, 'another', 'Present', '2024-08-05 22:00:00'),
-(20, 'jkd', 'Present', '2024-08-01 22:00:00'),
-(21, ',qsdn', 'Present', '2024-08-01 22:00:00'),
-(22, 'ytryt', 'Present', '2024-07-31 22:00:00'),
-(23, ',qsdn', 'Present', '2024-08-01 22:00:00'),
-(24, 'jbfjdh', 'Present', '2024-08-01 22:00:00');
+INSERT INTO `batches` (`id`, `name`, `created_at`) VALUES
+(2, 'BATCH 1', '2024-08-13 23:00:00'),
+(3, 'BATCH 2', '2024-08-13 23:00:00'),
+(4, 'BATCH 3', '2024-08-06 23:00:00'),
+(5, 'BATCH 4', '2024-08-14 23:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `passwordreset`
+-- Table structure for table `students`
 --
 
-CREATE TABLE `passwordreset` (
+CREATE TABLE `students` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `date_of_birth` date NOT NULL,
+  `school` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `user_id`, `first_name`, `last_name`, `date_of_birth`, `school`, `created_at`) VALUES
+(1, 9, 'Jean', 'Gray', '2002-08-14', 'CITEC', '2024-08-28 16:38:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_attendance`
+--
+
+CREATE TABLE `student_attendance` (
   `id` int(10) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
+  `is_present` tinyint(1) NOT NULL,
+  `marked_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(10) NOT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `roles`
---
-
-CREATE TABLE `roles` (
-  `id` int(10) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Déchargement des données de la table `roles`
---
-
-INSERT INTO `roles` (`id`, `username`, `password`, `role`) VALUES
-(1, 'EschosysTech', 'eschosys@123', 'admin');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `signin`
---
-
-CREATE TABLE `signin` (
-  `id` int(10) NOT NULL,
-  `fullname` text NOT NULL,
-  `username` text NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `batch` text NOT NULL,
   `gender` text NOT NULL,
   `password` varchar(255) NOT NULL,
-  `reset_token` varchar(255) NOT NULL,
-  `reset_token_expiry` varchar(255) NOT NULL
+  `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Déchargement des données de la table `signin`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `signin` (`id`, `fullname`, `username`, `email`, `batch`, `gender`, `password`, `reset_token`, `reset_token_expiry`) VALUES
-(1, 'Ebenda Assene Marthe Davida', 'DataDavinci', 'davidaebenda@gmail.com', '2', 'gender', '$2y$10$zsI7TzEQPc5OYH077dTl9ONtjvjw9YvLqiJy75gF5mvAi4kTrZXYS', '', ''),
-(2, 'Ebenda Assene Marthe Davida', 'DataDavinci', 'davidaebenda@gmail.com', '2', 'gender', '$2y$10$wOd3BqFui2oKn.32Wpnb/e1xVfyqPRet4l8jLdgMhouDwzrw9TaNa', '', ''),
-(3, 'Ebenda Assene Marthe Davida', 'DataDavinci', 'davidaebenda@gmail.com', '2', 'gender', '$2y$10$2v3C5FQRKllyCTtE0RdBy.naeRFsc1YXUlX/ZAKxgA/pE6nuewYWG', '', ''),
-(4, 'Frikang Favour Divine', 'Matrivyne', 'Matrivyne@gmail.com', '2', 'gender', '$2y$10$QEUz0jMlKgtDBLS9WcWrOeGTws0DS/IQIZSpp7vRUoZRiPRW6dBHi', '', ''),
-(5, 'Frikang Favour Divine', 'Matrivyne', 'Matrivyne@gmail.com', '2', 'gender', '$2y$10$hxuOKPteuDmjYP..SBTHzuKEPpjgxu5okfj5sjjgfMKXvGQw2X9KO', '', ''),
-(6, 'Frikang Favour Divine', 'Love', 'Matrivyne@gmail.com', '2', 'gender', '$2y$10$2aKawuytSmZPD6wmrJerq.2X8jbs36Dd.wHFsz988L5ErnXUtwgF.', '', ''),
-(7, 'Ebenda Assene Marthe Davida', 'Levi', 'jwood@mail.com', '2', 'gender', '$2y$10$.b3rOtYV4PtvK7OL0.T9a.NCQ5dDT6uLXomVk09ODrNx.9H6FjjPC', '', '');
-
--- --------------------------------------------------------
+INSERT INTO `users` (`id`, `is_admin`, `email`, `gender`, `password`, `created_at`) VALUES
+(8, 0, 'test@email.com', 'male', '$2y$10$BP3GQnrgH60hGdN2ExQ1COkKwHGGWuhOhXRFtinoMwcgKpjHrJkhi', '2024-08-28 14:05:00'),
+(9, 0, 'iiiasd@email.com', 'male', '$2y$10$fpYpq9YAfygC.a/NnrLjHexdLMgkfmcSGCkVSPWb1M3xtdLbxADUy', '2024-08-28 14:06:17'),
+(10, 0, 'jeangray@gmail.com', 'female', '$2y$10$nHjL5yZeRZudRQkBNxYHFOsfall4izoWcBr1rEYNRRcPGNKvV2OnC', '2024-08-28 14:09:25');
 
 --
--- Structure de la table `subject`
---
-
-CREATE TABLE `subject` (
-  `id` int(10) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `subject`
---
-
-INSERT INTO `subject` (`id`, `subject`, `date`) VALUES
-(2, 'hjvsd', '2024-08-14'),
-(3, 'hjvsd', '2024-08-14'),
-(4, 'yftyughvghfu', '2024-08-07'),
-(5, 'swe', '2024-08-15'),
-(6, 'web programming', '2024-08-02');
-
---
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `admin`
+-- Indexes for table `admins`
 --
-ALTER TABLE `admin`
+ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `adminsessions`
+-- Indexes for table `batches`
 --
-ALTER TABLE `adminsessions`
+ALTER TABLE `batches`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `attends`
+-- Indexes for table `students`
 --
-ALTER TABLE `attends`
+ALTER TABLE `students`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `passwordreset`
+-- Indexes for table `student_attendance`
 --
-ALTER TABLE `passwordreset`
+ALTER TABLE `student_attendance`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `roles`
+-- Indexes for table `users`
 --
-ALTER TABLE `roles`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `signin`
---
-ALTER TABLE `signin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `subject`
---
-ALTER TABLE `subject`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `admin`
+-- AUTO_INCREMENT for table `admins`
 --
-ALTER TABLE `admin`
+ALTER TABLE `admins`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT pour la table `adminsessions`
+-- AUTO_INCREMENT for table `batches`
 --
-ALTER TABLE `adminsessions`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `batches`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `attends`
+-- AUTO_INCREMENT for table `students`
 --
-ALTER TABLE `attends`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+ALTER TABLE `students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `passwordreset`
+-- AUTO_INCREMENT for table `student_attendance`
 --
-ALTER TABLE `passwordreset`
+ALTER TABLE `student_attendance`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `roles`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `roles`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `signin`
---
-ALTER TABLE `signin`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT pour la table `subject`
---
-ALTER TABLE `subject`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `users`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

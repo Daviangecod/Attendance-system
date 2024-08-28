@@ -2,9 +2,7 @@
     "name": "lenovo/project1",
     "autoload": {
        "files": [
-            "./includes/functions.php",
-            "./middleware/check_login_users.php",
-            "./middleware/check_student.php"
+            "./includes/functions.php"
        ]
     },
     "authors": [
