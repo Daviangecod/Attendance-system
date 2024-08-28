@@ -1,34 +1,33 @@
 <?php 
-require __DIR__."/../config/database.php";
-require __DIR__."../helper/redirect.php";
-require __DIR__."../helper/debug.php";
+require_once __DIR__."/../../vendor/autoload.php";
+require_once __DIR__."/../../includes/db_connect.php";
+
 
 
 if($_SERVER['REQUEST_METHOD'] !== "POST") {
     $error = [
         'error' => "invalidrequest"
     ];
-    redirect('../login_student.php', $error);
+    redirect(baseUrl("auth/login_student.php", $error));
 }
 else {
 
     // Check if fields are empty
 
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if(empty($username) || empty($password)) {
+    if(empty($email) || empty($password)) {
         $error = [
-            'error' => "emptyvalues"
+            'error' => "emptyfields"
         ];
-        
-        redirect('../login_student.php', $error);
+        redirect(baseUrl("auth/login_student.php", $error));
     }
     else {
 
 
         // Check username in database
-        $query = "SELECT * FROM signin WHERE username = '$username'";
+        $query = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query($connection, $query);
 
         // Check the result if you recieved any value from the database
@@ -41,24 +40,35 @@ else {
             // Verify Password
             if(password_verify($password, $hashedPassword)) {
 
-                // Start the session and save some user details in the session
-                session_start();
+    
+                    // Start the session and save some user details in the session
+                    session_start();
 
-                $_SESSION['loginID'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
+                    $_SESSION['loginID'] = $user['id'];
+                    $_SESSION['role'] = "student";
+                    
 
-                $message = [
-                    'success' => "loginsuccess"
-                ];
-                
-                redirect('../../student/dashboard.php', $message);
+                    $userId = $user['id'];
+
+                    // Get students first and last name and save in the session
+
+                    $query = "SELECT * FROM students WHERE user_id = $userId";
+                    $result = mysqli_query($connection, $query);
+
+                    if(mysqli_num_rows($result) !== 0) {
+                        $student = mysqli_fetch_assoc($result);
+                        $_SESSION['fullname'] = $student['first_name'] . " " . $student['last_name'];
+                    }
+
+                    redirect(baseUrl('student/dashboard.php', ['message' => 'loginsuccess']));
+
             }
             else {
                 $error = [
                     'error' => "invalidcredentials"
                 ];
-                redirect('../login_student.php', $error);
 
+                redirect(baseUrl("auth/login_student.php", $error));
             }
             
         }
@@ -66,7 +76,7 @@ else {
             $error = [
                 'error' => "invalidcredentials"
             ];
-            redirect('signupStudents.php', $error);
+            redirect(baseUrl("auth/login_student.php", $error));
         }
 
 

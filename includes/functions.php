@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../config/settings.php";
 
-if(!function_exists("siteName")){
+if(!function_exists("baseUrl")){
     function baseUrl(string $path = null, array $query = null){
 
         if($path !== null && $query !== null){

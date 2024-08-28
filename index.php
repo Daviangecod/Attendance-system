@@ -1,6 +1,9 @@
 <?php $pageTitle = "Welcome page"; ?>
 
 <?php require_once __DIR__ . '/templates/header.php'; ?>
+<head>
+    <link rel="stylesheet" href="assets/css/welcome.css">
+</head>
 
 <header>
     <div class="container-list">
@@ -9,10 +12,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="join.php">Login</a></li>
-                <li><a href="register.php">Register</a></li>
+                <li><a href="<?= baseUrl('auth/login_student.php') ?>">Login</a></li>
+                <li><a href="<?= baseUrl('auth/register_student.php') ?>">Register</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+            
             </ul>
         </nav>
         <button class="menu-toggle">
@@ -30,7 +33,7 @@
         <p>Eschosys technologies <br>
             the live of hands-on experience
         </p>
-        <button class="learn-more">Learn More</button>
+        
     </div>
 
 </section>

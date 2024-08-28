@@ -2,7 +2,9 @@
     "name": "lenovo/project1",
     "autoload": {
        "files": [
-            "./includes/functions.php"
+            "./includes/functions.php",
+            "./middleware/check_login_users.php",
+            "./middleware/check_student.php"
        ]
     },
     "authors": [
@@ -11,5 +13,7 @@
             "email": "davidaebenda@gmail.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "symfony/var-dumper": "^7.1"
+    }
 }
