@@ -31,7 +31,7 @@ if(!function_exists("redirect")){
 
         if($query !== null){
             $httpQuery = http_build_query($query);
-            return header("Location: $to?httpQuery");
+            return header("Location: $to?$httpQuery");
         }
         return header("Location: $to");
     }

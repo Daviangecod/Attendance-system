@@ -29,9 +29,7 @@
           </button>
 
 
-        
-
-
+      
           <a href="logout_notice.php" class="bg-red-800 text-white py-2 px-3 rounded-lg hover:bg-red-700 transition-all delay-75 ease-in-out">
               Logout
           </a>

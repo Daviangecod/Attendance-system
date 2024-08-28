@@ -1,8 +1,5 @@
 <?php require_once "./templates/header.php" ?>
 
-<?php
-check_login_users();
-?>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <!-- component -->
@@ -21,7 +18,7 @@ check_login_users();
     <section class="flex flex-col justify-center antialiased bg-gray-50 text-gray-600 mb-10">
       <div class="h-full">
         <!-- Card -->
-        <div class="mx-auto bg-cyan-600 shadow-lg h-48 rounded-lg">
+        <div class="mx-auto bg-[#093c94] shadow-lg h-48 rounded-lg">
           <div class="px-6 py-5">
 
             <!-- Card content -->
@@ -36,7 +33,7 @@ check_login_users();
               <!-- Card body -->
               <div class="flex items-start justify-between whitespace-normal">
                 <!-- Paragraph -->
-                <div class="text-black-700">
+                <div class="text-white">
                   <p class="mb-2">Welcome to Eschosys attendance system</p>
                 </div>
                 <div class="flex items-start">

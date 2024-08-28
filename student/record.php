@@ -1,9 +1,6 @@
 
 <?php require_once "./templates/header.php" ?>
 
-<?php
-  check_login_users();
-?>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <!-- component -->
