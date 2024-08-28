@@ -32,12 +32,8 @@
         
 
 
-          <a href="logout_notice.php">
-            <button class="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30" type="button">
-              <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
-                    Logout
-              </span>
-            </button>
+          <a href="logout_notice.php" class="bg-red-800 text-white py-2 px-3 rounded-lg hover:bg-red-700 transition-all delay-75 ease-in-out">
+              Logout
           </a>
      
         </div>
