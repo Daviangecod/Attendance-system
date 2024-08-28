@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] !== "POST") {
     $error = [
         'error' => "invalidrequest"
     ];
-    redirect('../login_student.php', $error);
+    redirect(baseUrl("auth/login_student.php", $error));
 }
 else {
 

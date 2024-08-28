@@ -4,7 +4,7 @@ require __DIR__."/../config/database.php";
 require __DIR__."../helper/redirect.php";
 
 
-if(!isset($_SESSION['loginID']) && !isset($_SESSION['username'])){
+if(!isset($_SESSION['loginID'])){
   redirect('signupStudents.php');
 }
 

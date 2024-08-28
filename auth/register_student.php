@@ -16,20 +16,19 @@
 
 
             <h1 class="att">Register</h1>
-
-            <div class="social-container">
-                <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#" class="social"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                <a href="#" class="social"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            </div>
-            <span>Or use your account</span>
             <input type="email" placeholder="Email Address" name="email" required>
+            <select name="gender" id="gender" style="width: 100%; padding: 0.8rem 1rem; border-radius: 5px; border:none">
+                  <option selected disabled>Select Your Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+            </select>
             <input type="password" placeholder="Password" name="password" required>
+    
           
             <button>Register</button>
         </form>
     </div>
-    <div class="overlay-container">
+    <div class="overlay-container" style="filter: hue-rotate(50deg);">
         <div class="overlay">
             <div class="overlay-panel overlay-right">
                 <h1 class="att" style="color: white">Welcome Back!</h1>

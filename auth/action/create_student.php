@@ -8,35 +8,28 @@ if($_SERVER['REQUEST_METHOD'] !== "POST"){
     redirect(path: "register.php", query:["error" => "invalidrequest"]);
 }
 else{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-$fullname = $_POST['fullname'];
-$username = $_POST['username'];
+                                                                                                                                                                                                                    
 $email = $_POST['email'];
 $gender = $_POST['gender'];
 $password = $_POST['password'];
 
-    // Write an Insert Query
 
-    /* Insert into table_name (column1, column2, column3,..) 
-    
-    VALUES(value1, value2, value3,...)
-    */
-
-    if(empty($username) || empty($password) || empty($email) || empty($fullname) || empty($gender)) {
+    if(empty($password) || empty($email) || empty($gender)) {
         $error = [
-            'error' => "emptyvalues"
+            'error' => "emptyfields"
         ];
         
-        redirect('register.php', $error);
+        redirect(baseUrl("auth/register_student.php", $error));
     }
     else {
 
         // Hash user password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $isAdmin = 0;
 
         // Create Users
 
-        $query = "INSERT INTO signin(fullname, username, email,  gender, password) VALUES('$fullname','$username', '$email',  '$gender', '$hashedPassword')";
+        $query = "INSERT INTO users(is_admin, email, gender, password) VALUES($isAdmin, '$email', '$gender',  '$hashedPassword')";
 
         $result = mysqli_query($connection, $query);
 
@@ -45,14 +38,14 @@ $password = $_POST['password'];
                 'success' => "usercreated"
             ];
             
-            redirect('Students/dashboard.php', $message);
+            redirect(baseUrl('student/dashboard.php', $message));
         }else {
 
             $error = [
                 'error' => "usernotcreated"
             ];
             
-            redirect('register.php', $error);
+            redirect(baseUrl("auth/register_student.php", $error));
         }
 
     }
