@@ -2,13 +2,13 @@
 
 function dbConnect()
 {
-    $dbConfig = [
+    // connection variables
 
-// connection variables
-        'hostname' = "localhost";
-        'username' = "root";
-        'password' = "";
-        'database' = "attendance";
+    $dbConfig = [
+        'hostname' => "localhost",
+        'username' => "root",
+        'password' => "",
+        'database' => "attendance"
     ];
 
 // connect to database
