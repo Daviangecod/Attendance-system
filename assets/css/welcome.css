@@ -10,10 +10,6 @@ body {
     margin-top: -90px;
 }
 
-.img{
-    margin-left: -100px;
-}
-
 img{
     height: 350px;
     margin-left: 60%;
@@ -33,7 +29,7 @@ img{
 }
 
 header {
-    height: 100px;
+    height: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -102,9 +98,9 @@ p {
     margin: 0 auto;
 }
 
-/* .learn-more {
+.learn-more {
     background-color: #007bff; 
-    color: #fff; /* Blue text 
+    color: #fff; /* Blue text */
     padding: 15px 30px;
     border: none;
     border-radius: 5px;
@@ -116,7 +112,7 @@ p {
 
 .learn-more:hover {
     background-color: #092583;
-} */
+}
 
 /* Responsive Navigation (Menu Toggle) */
 .menu-toggle {
