@@ -34,7 +34,7 @@ if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
             try {
 
                 // Create User
-                $query = "INSERT INTO users(email, password, is_admin) VALUES('$escapedEmail', '$hashedPassword', $isAdmin)";
+                $query = "INSERT INTO users(email, gender, password, is_admin) VALUES('$escapedEmail', '$hashedPassword', $isAdmin)";
                 $result = mysqli_query($connection, $query);
 
                 if ($result) {
