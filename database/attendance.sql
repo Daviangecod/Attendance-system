@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2024 at 11:34 AM
+-- Generation Time: Aug 30, 2024 at 12:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `user_id`, `first_name`, `last_name`, `created_at`) VALUES
-(58, 8, 'Dude', 'Master', '2024-08-30 08:29:51');
+(58, 8, 'Dude', 'Master', '2024-08-30 08:29:51'),
+(59, 11, 'Admin', 'Moneto', '2024-08-30 10:33:00');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,7 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `user_id`, `batch_id`, `first_name`, `last_name`, `date_of_birth`, `is_approved`, `school`, `created_at`) VALUES
-(1, 9, NULL, 'Jean', 'Gray', '2002-08-14', 0, 'CITEC', '2024-08-28 16:38:20'),
+(1, 9, 2, 'Jean', 'Gray', '2002-08-14', 1, 'CITEC', '2024-08-28 16:38:20'),
 (2, 10, 2, 'Black', 'Gray', '2024-08-22', 1, 'CITECs', '2024-08-29 23:52:20');
 
 -- --------------------------------------------------------
@@ -100,9 +101,18 @@ CREATE TABLE `student_attendance` (
   `id` int(10) NOT NULL,
   `student_id` int(11) NOT NULL,
   `admin_id` int(11) NOT NULL,
+  `batch_id` int(11) NOT NULL,
   `is_present` tinyint(1) NOT NULL,
   `marked_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student_attendance`
+--
+
+INSERT INTO `student_attendance` (`id`, `student_id`, `admin_id`, `batch_id`, `is_present`, `marked_date`) VALUES
+(1, 2, 58, 2, 1, '2024-08-30'),
+(2, 1, 58, 2, 0, '2024-08-30');
 
 -- --------------------------------------------------------
 
@@ -126,7 +136,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `is_admin`, `email`, `gender`, `password`, `created_at`) VALUES
 (8, 1, 'admin@email.com', 'male', '$2y$10$BP3GQnrgH60hGdN2ExQ1COkKwHGGWuhOhXRFtinoMwcgKpjHrJkhi', '2024-08-28 14:05:00'),
 (9, 0, 'iiiasd@email.com', 'male', '$2y$10$fpYpq9YAfygC.a/NnrLjHexdLMgkfmcSGCkVSPWb1M3xtdLbxADUy', '2024-08-28 14:06:17'),
-(10, 0, 'jeangray@gmail.com', 'female', '$2y$10$8VcV9fTRpazViuPhDBrOqORBfUXoddiMnRjp68JKGO1VMk6ztquSG', '2024-08-28 14:09:25');
+(10, 0, 'jeangray@gmail.com', 'female', '$2y$10$8VcV9fTRpazViuPhDBrOqORBfUXoddiMnRjp68JKGO1VMk6ztquSG', '2024-08-28 14:09:25'),
+(11, 1, 'admin@monet.com', '', '$2y$10$c.KGIf6vOD4g2HVF41y/eecttfhCJwas.3vs8HXjYCnUpyn6k/Dlu', '2024-08-30 10:32:48');
 
 --
 -- Indexes for dumped tables
@@ -170,7 +181,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `batches`
@@ -188,13 +199,13 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `student_attendance`
 --
 ALTER TABLE `student_attendance`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
