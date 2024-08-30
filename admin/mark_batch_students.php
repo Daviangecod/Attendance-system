@@ -40,6 +40,18 @@ $attendances = mysqli_fetch_all($attendanceResult, MYSQLI_ASSOC);
         <!-- Snippet -->
         <h1 class="text-3xl font-semibold mb-8">Mark Batch Attendance</h1>
 
+        <?php if(isset($_GET['error'])): ?>
+
+            <?php if($_GET['error'] == "today_attendance_exist") : ?>
+                <div class="rounded-lg bg-red-100 text-red-600 py-3 px-3 text-center mb-3">
+                    The attendance for this batch has already been marked for the day
+                </div>
+            <?php endif ?>
+
+        <?php endif ?>
+
+       
+
         <div class="grid grid-cols-1 gap-8 mb-8 border-b-4 border-b-primary">
 
             <div class="min-h-fit p-10 bg-white shadow rounded-lg overflow-x-auto">
@@ -49,7 +61,7 @@ $attendances = mysqli_fetch_all($attendanceResult, MYSQLI_ASSOC);
                 <form action="<?= baseUrl('admin/action/mark_attendance.php') ?>" method="POST">
                     <input type="hidden" name="batchID" value="<?= $batchID ?>" />
 
-                    <table id="dTable" class="dTable display" style="width:100%">
+                    <table id="dTable" class="display" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Full Names</th>
