@@ -38,7 +38,7 @@ $password = $_POST['password'];
                 'success' => "usercreated"
             ];
 
-            redirect(baseUrl("auth/login_student.php", $message));
+            redirect(baseUrl("auth/login.php", $message));
         
         }else {
 
