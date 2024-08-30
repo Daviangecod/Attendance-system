@@ -44,8 +44,6 @@ $attendances = mysqli_fetch_all($attendanceResult, MYSQLI_ASSOC);
 
             <div class="min-h-fit p-10 bg-white shadow rounded-lg overflow-x-auto">
 
-                <h3 class="text-xl mb-10">Date: <span class="py-2 px-3 bg-primary rounded-lg text-white"><?= date('l dS F Y'); ?></span></h3>
-
                 <p class="mb-8 text-xl text-red-500"><strong>NOTE: </strong> Attendance can only be submitted once everyday! Be sure of student's status before submitting!</p>
 
                 <form action="<?= baseUrl('admin/action/mark_attendance.php') ?>" method="POST">
