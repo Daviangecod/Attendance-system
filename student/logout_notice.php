@@ -1,21 +1,20 @@
 <?php require_once "./templates/header.php" ?>
 <?php
-  check_login_users();
+  require_once basePath('middleware/check_login_users.php');
 ?>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 
-  <!-- component -->
+ 
   <div class="min-h-screen bg-gray-50/50">
 
-      <!-- The Sidebar  -->
+
     <?php require_once "./templates/sidebar.php" ?>
  
-    <!-- navbar -->
+
     <div class="p-4 xl:ml-80">
 
-    <!-- The Navigation  -->
     <?php require_once "./templates/navigation.php" ?>
 
       <div class="bg-gray-100 flex space-x-4 items-center justify-center h-screen">

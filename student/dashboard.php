@@ -14,42 +14,9 @@
     <!-- The Navigation  -->
     <?php require_once "./templates/navigation.php" ?>
 
-    <!-- Snippet -->
-    <section class="flex flex-col justify-center antialiased bg-gray-50 text-gray-600 mb-10">
-      <div class="h-full">
-        <!-- Card -->
-        <div class="mx-auto bg-[#093c94] shadow-lg h-48 rounded-lg">
-          <div class="px-6 py-5">
+    <h1 class="text-3xl font-semibold mb-8">Home</h1>
 
-            <!-- Card content -->
-            <div class="flex-grow truncate">
-              <!-- Card header -->
-              <div class="w-full sm:flex justify-between items-center mb-3">
-                <!-- Title -->
-                <h1 class="text-2xl leading-snug font-extrabold text-gray-50 truncate mb-1 sm:mb-0">Welcome Student!!</h1>
-                <!-- Like and comment buttons -->
-
-              </div>
-              <!-- Card body -->
-              <div class="flex items-start justify-between whitespace-normal">
-                <!-- Paragraph -->
-                <div class="text-white">
-                  <p class="mb-2">Welcome to Eschosys attendance system</p>
-                </div>
-                <div class="flex items-start">
-                  <!-- Icon -->
-                  <div class="img">
-                    <img src="<?= baseUrl('student/assets/images/girl.png') ?>" alt="" height="250" width="250">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
 
       <div class="col-span-1 bg-white border-b-4 border-b-primary shadow rounded-lg min-h-[180px] w-full hover:scale-105 transition-all ease-in-out delay-75 py-3 px-8 grid grid-cols-1 gap-y-5 xl:gap-y-0 xl:grid-cols-2 items-center">
 
@@ -94,6 +61,43 @@
       </div>
 
     </div>
+
+    <!-- Snippet -->
+    <section class="flex flex-col justify-center antialiased bg-gray-50 text-gray-600 mb-10">
+      <div class="h-full">
+        <!-- Card -->
+        <div class="mx-auto bg-[#093c94] shadow-lg h-48 rounded-lg">
+          <div class="px-6 py-5">
+
+            <!-- Card content -->
+            <div class="flex-grow truncate">
+              <!-- Card header -->
+              <div class="w-full sm:flex justify-between items-center mb-3">
+                <!-- Title -->
+                <h1 class="text-2xl leading-snug font-extrabold text-gray-50 truncate mb-1 sm:mb-0">Welcome Student!!</h1>
+                <!-- Like and comment buttons -->
+
+              </div>
+              <!-- Card body -->
+              <div class="flex items-start justify-between whitespace-normal">
+                <!-- Paragraph -->
+                <div class="text-white">
+                  <p class="mb-2">Welcome to Eschosys attendance system</p>
+                </div>
+                <div class="flex items-start">
+                  <!-- Icon -->
+                  <div class="img">
+                    <img src="<?= baseUrl('student/assets/images/girl.png') ?>" alt="" height="250" width="250">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
 
   </div>

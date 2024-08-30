@@ -1,25 +1,25 @@
 <?php require_once "./templates/header.php" ?>
 
-<?php 
+<?php
 
-    $student = [];
-    $user = [];
-    $batches = [];
+$student = [];
+$user = [];
+$batches = [];
 
-    $userID = $_SESSION['loginID'];
+$userID = $_SESSION['loginID'];
 
-    $query = "SELECT * FROM students WHERE user_id = $userID";
-    $result = mysqli_query($connection, $query);
-    if(mysqli_num_rows($result) == 1) {
-        $student = mysqli_fetch_assoc($result);
-    }
+$query = "SELECT * FROM students WHERE user_id = $userID";
+$result = mysqli_query($connection, $query);
+if (mysqli_num_rows($result) == 1) {
+    $student = mysqli_fetch_assoc($result);
+}
 
-    $userQuery = "SELECT * FROM users WHERE id = $userID";
-    $userResult = mysqli_query($connection, $userQuery);
+$userQuery = "SELECT * FROM users WHERE id = $userID";
+$userResult = mysqli_query($connection, $userQuery);
 
-    if(mysqli_num_rows($userResult) == 1) {
-        $user = mysqli_fetch_assoc($userResult);
-    }
+if (mysqli_num_rows($userResult) == 1) {
+    $user = mysqli_fetch_assoc($userResult);
+}
 
 ?>
 
@@ -42,14 +42,14 @@
 
         <div class="container mx-auto">
             <h1 class="text-3xl font-semibold mb-8">Profile Settings</h1>
-            
+
             <div class="grid grid-cols-1 gap-8 mb-8">
 
                 <h2 class="text-2xl font-semibold">User Account Details</h2>
 
                 <div class="min-h-fit p-10 bg-white shadow rounded-lg">
 
-                    <form action="<?= baseUrl('admin/action/update_profile_user_account.php') ?>" method="POST" autocomplete="off">
+                    <form action="<?= baseUrl('student/action/update_user_account.php') ?>" method="POST" autocomplete="off">
 
                         <input type="hidden" name="userID" value="<?= $user['id'] ?>">
 
@@ -68,8 +68,8 @@
                 <h2 class="text-2xl font-semibold">Personal Information</h2>
 
                 <div class="min-h-fit p-10 bg-white shadow rounded-lg">
-                    <form action="<?= baseUrl('admin/action/update_profile_admin_info.php') ?>" method="POST" autocomplete="off">
-                        <input type="hidden" name="adminID" value="<?= $admin['id'] ?>">
+                    <form action="<?= baseUrl('student/action/update_info.php') ?>" method="POST" autocomplete="off">
+                        <input type="hidden" name="studentID" value="<?= $student['id'] ?>">
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                             <div>
@@ -83,6 +83,18 @@
                             </div>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="school">School of Study</label>
+                            <input type="text" name="school" id="school" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" placeholder="Type the name of your school" value="<?= $student['school'] ?>" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dateOfBirth">Date Of Birth</label>
+                            <input type="date" name="dateOfBirth" id="dateOfBirth" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" value="<?= $student['date_of_birth'] ?>" />
+                        </div>
+
+
+
                         <button class="py-2 px-3 bg-[#4283f2] hover:bg-[#093c94] transition-all ease-in-out delay-75 rounded-lg text-white">Update</button>
 
                     </form>
@@ -92,7 +104,7 @@
                 <h2 class="text-2xl font-semibold">Change Password</h2>
 
                 <div class="min-h-fit p-10 bg-white shadow rounded-lg">
-                    <form action="<?= baseUrl('admin/action/update_profile_password.php') ?>" method="POST" autocomplete="off">
+                    <form action="<?= baseUrl('student/action/update_password.php') ?>" method="POST" autocomplete="off">
 
                         <input type="hidden" name="userID" value="<?= $user['id'] ?>">
                         <div class="mb-3">
