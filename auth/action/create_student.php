@@ -5,7 +5,7 @@ require_once __DIR__."/../../includes/db_connect.php";
 
 
 if($_SERVER['REQUEST_METHOD'] !== "POST"){
-    redirect(path: "register.php", query:["error" => "invalidrequest"]);
+    redirect("register.php", ["error" => "invalidrequest"]);
 }
 else{
                                                                                                                                                                                                                     
