@@ -1,27 +1,27 @@
 <?php require_once "./templates/header.php" ?>
 
-<?php
 
-$student = [];
-$user = [];
-$batches = [];
+<?php 
 
-$userID = $_SESSION['loginID'];
+        $admin = [];
+        $user = [];
 
-$query = "SELECT * FROM students WHERE user_id = $userID";
-$result = mysqli_query($connection, $query);
-if (mysqli_num_rows($result) == 1) {
-    $student = mysqli_fetch_assoc($result);
-}
+        $userID = $_SESSION['loginID'];
 
-$userQuery = "SELECT * FROM users WHERE id = $userID";
-$userResult = mysqli_query($connection, $userQuery);
+        $query = "SELECT * FROM users WHERE id = $userID";
+        $result = mysqli_query($connection, $query);
+        if(mysqli_num_rows($result) == 1) {
+            $user = mysqli_fetch_assoc($result);
+        }
 
-if (mysqli_num_rows($userResult) == 1) {
-    $user = mysqli_fetch_assoc($userResult);
-}
+        $adminQuery = "SELECT * FROM admins WHERE user_id = $userID";
+        $adminResult = mysqli_query($connection, $adminQuery);
 
+        if(mysqli_num_rows($adminResult) == 1) {
+            $admin = mysqli_fetch_assoc($adminResult);
+        }
 ?>
+
 
 <!-- component -->
 <div class="min-h-screen bg-gray-50/50">
@@ -47,7 +47,7 @@ if (mysqli_num_rows($userResult) == 1) {
 
                 <div class="min-h-fit p-10 bg-white shadow rounded-lg">
 
-                    <form action="<?= baseUrl('student/action/update_user_account.php') ?>" method="POST" autocomplete="off">
+                    <form action="<?= baseUrl('admin/action/update_user_account.php') ?>" method="POST" autocomplete="off">
 
                         <input type="hidden" name="userID" value="<?= $user['id'] ?>">
 
@@ -66,34 +66,22 @@ if (mysqli_num_rows($userResult) == 1) {
                 <h2 class="text-2xl font-semibold">Personal Information</h2>
 
                 <div class="min-h-fit p-10 bg-white shadow rounded-lg">
-                    <form action="<?= baseUrl('student/action/update_info.php') ?>" method="POST" autocomplete="off">
-                        <input type="hidden" name="studentID" value="<?= $student['id'] ?>">
+                     <form action="<?= baseUrl('admin/action/update_info.php') ?>" method="POST" autocomplete="off">
+                        <input type="hidden" name="adminID" value="<?= $admin['id'] ?? null ?>">
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                             <div>
                                 <label for="firstName">First Name</label>
-                                <input type="text" name="firstName" id="firstName" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" placeholder="Type your First Name" value="<?= $student['first_name'] ?? "" ?>" />
+                                <input type="text" name="firstName" id="firstName" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" placeholder="Type your First Name" value="<?= $admin['first_name'] ?? "" ?>" />
                             </div>
 
                             <div>
                                 <label for="lastName">Last Name</label>
-                                <input type="text" name="lastName" id="lastName" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" placeholder="Type your Last Name" value="<?= $student['last_name'] ?? "" ?>" />
+                                <input type="text" name="lastName" id="lastName" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" placeholder="Type your Last Name" value="<?= $admin['last_name'] ?? "" ?>" />
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="school">School of Study</label>
-                            <input type="text" name="school" id="school" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" placeholder="Type the name of your school" value="<?= $student['school'] ?>" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="dateOfBirth">Date Of Birth</label>
-                            <input type="date" name="dateOfBirth" id="dateOfBirth" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" value="<?= $student['date_of_birth'] ?>" />
-                        </div>
-
-
-
-                        <button class="py-2 px-3 bg-[#4283f2] hover:bg-[#093c94] transition-all ease-in-out delay-75 rounded-lg text-white">Update</button>
+                        <button class="py-2 px-3 bg-[#4283f2] hover:bg-[#4283f2]-dark transition-all ease-in-out delay-75 rounded-lg text-white">Update</button>
 
                     </form>
                 </div>
@@ -132,9 +120,6 @@ if (mysqli_num_rows($userResult) == 1) {
 
 
         </div>
-
-
-
 
 
 

@@ -1,68 +1,49 @@
-<?php
-
-?>
+<?php session_start() ?>
+<?php require_once __DIR__ . '/../vendor/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <form action="action/create_admin.php" method="POST">
-        <!-- component -->
-<div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
-  <div class="container max-w-screen-lg mx-auto">
-    <div>
-      <h2 class="font-semibold text-xl text-gray-600">Register and be part of our community</h2>
-      <p class="text-gray-500 mb-6"></p>
 
-      <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
-        <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-          <div class="text-gray-600">
-            <p class="font-medium text-lg">Personal Details</p>
-            <p>Please fill out all the fields.</p>
-            <div class="logo">
-            <img src="escho.png" alt="Logo" class="logo" height="300" width="250">
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <title>Admin Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <?php require_once basePath('middleware/check_login_users.php'); ?>
+  <?php require_once basePath('middleware/check_admin_with_details.php'); ?>
+</head>
+
+<body>
+
+
+  <main class="min-h-screen w-full flex items-center justify-center px-5 md:px-0 bg-blue-50">
+    <div class="container mx-auto">
+      
+      <form action="./action/save_student_details.php" method="POST" class="max-w-lg mx-auto bg-white shadow rounded-lg w-full min-h-fit py-10 px-8">
+        
+        <h1 class="text-4xl font-bold text-center mb-8">Admin Personal Details</h1>
+
+        <h3 class="text-center italic text-slate-500 mb-5">Personal Details</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+          <div>
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" placeholder="Type your First Name" />
           </div>
 
-          <div class="lg:col-span-2">
-            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-              <div class="md:col-span-5">
-                <label for="full_name">Full Name</label>
-                <input type="text" name="fullname" id="full_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="Enter your fullname"/>
-              </div>
-
-              <div class="md:col-span-5">
-                <label for="full_name">Username</label>
-                <input type="text" name="username" id="full_name" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="Enter the username"/>
-              </div>
-
-              <div class="md:col-span-5">
-                <label for="email">Email Address</label>
-                <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
-              </div>
-
-              <div class="md:col-span-2">
-                <label for="city">Password</label>
-                <input type="password" name="password" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="Enter the password" />
-              </div>
-
-              <div class="md:col-span-5 text-right">
-                <div class="inline-flex items-end">
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-                </div>
-              </div>
-
-            </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" placeholder="Type your Last Name" />
           </div>
         </div>
-      </div>
+
+        <button type="submit" class="py-3 px-2 text-white bg-blue-800 hover:bg-blue-900 w-full rounded-lg transition-all delay-75 ease-in-out">Save</button>
+
+      </form>
+
     </div>
-  </div>
-</div>
-    </form>
-</body>
-</html>
+  </main>
+
+
+
+  <?php require_once __DIR__ . '/../templates/footer.php'; ?>

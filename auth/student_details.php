@@ -21,6 +21,8 @@
     <div class="container mx-auto">
       
       <form action="./action/save_student_details.php" method="POST" class="max-w-lg mx-auto bg-white shadow rounded-lg w-full min-h-fit py-10 px-8">
+
+      <img src="<?= baseUrl('assets/images/eschosys.webp') ?>" alt="Logo" class="block mx-auto w-36 mb-3">
         
         <h1 class="text-4xl font-bold text-center mb-8">Student Personal Details</h1>
 

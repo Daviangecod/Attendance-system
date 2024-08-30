@@ -13,7 +13,7 @@
     <?php require_once "./templates/navigation.php" ?>
 
     <!-- Snippet -->
-    <h1 class="text-3xl font-semibold mb-8">Attendance Records</h1>
+    <h1 class="text-3xl font-semibold mb-8">Approve Students</h1>
 
   </div>
 

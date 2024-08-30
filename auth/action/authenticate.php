@@ -72,6 +72,8 @@ else {
                                 session_start();
 
                                 $_SESSION['loginID'] = $user['id'];
+                                $_SESSION['role'] = "admin";
+
                                 $userId = $user['id'];
 
              
