@@ -177,9 +177,9 @@
                   <td><?= $student["first_name"] . " " . $student['last_name'] ?></td>
                   <td>
                     <?php if ($attendance['is_present'] == 0): ?>
-                      <span class="rounded-lg text-sm py-2 px-3 text-orange-600 bg-orange-100 border border-orange-600">Absent</span>
+                      <span class="rounded-lg text-sm py-1 px-3 text-orange-600 bg-orange-100 border border-orange-600">Absent</span>
                     <?php elseif ($attendance['is_present'] == 1): ?>
-                      <span class="rounded-lg text-sm py-2 px-3 text-green-600 bg-green-100 border border-green-600">Present</span>
+                      <span class="rounded-lg text-sm py-1 px-3 text-green-600 bg-green-100 border border-green-600">Present</span>
                     <?php endif ?>
                   </td>
                   <td><?= date('l dS F Y', strtotime($attendance['marked_date'])) ?></td>
