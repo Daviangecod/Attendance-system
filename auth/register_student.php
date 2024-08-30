@@ -4,7 +4,8 @@
 <main class="min-h-screen flex items-center justify-center bg-blue-50 px-5 md:px-0">
     <div class="container mx-auto">
         <div class="w-full md:w-[500px] mx-auto px-5 py-10 rounded-lg shadow border bg-white">
-
+            
+            <img src="<?= baseUrl('assets/images/eschosys.webp') ?>" alt="Logo" class="block mx-auto w-36 mb-3">
             <h1 class="text-3xl font-semibold mb-8 text-center">Create a new account</h1>
 
             <form action="<?= baseUrl('auth/action/create_student.php') ?>" method="POST">

@@ -21,7 +21,7 @@ if(isset($_SESSION['loginID']) && isset($_SESSION['role'])) {
             $result = mysqli_query($connection, $query);
 
             if(mysqli_num_rows($result) == 1) {
-                redirect(baseUrl("student"));
+                redirect(baseUrl("student/dashboard.php"));
             }
 
             

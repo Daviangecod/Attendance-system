@@ -5,6 +5,8 @@
     <div class="container mx-auto">
         <div class="w-full md:w-[500px] mx-auto px-5 py-10 rounded-lg shadow border bg-white">
 
+        <img src="<?= baseUrl('assets/images/eschosys.webp') ?>" alt="Logo" class="block mx-auto w-36 mb-3">
+
         <h1 class="text-3xl font-semibold mb-8 text-center">Login to your account</h1>
 
             <form action="<?= baseUrl('auth/action/authenticate.php') ?>" method="POST">
