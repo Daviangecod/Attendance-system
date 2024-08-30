@@ -4,7 +4,7 @@
 <?php require_once __DIR__ . '/templates/header.php' ?>
 
 <?php
-    $query = "SELECT * FROM students WHERE is_approved = 0";
+    $query = "SELECT * FROM students";
     $result = mysqli_query($connection, $query);
     $students = mysqli_fetch_all($result, MYSQLI_ASSOC);;
 ?>
@@ -23,7 +23,7 @@
     <?php require_once "./templates/navigation.php" ?>
 
     <!-- Snippet -->
-    <h1 class="text-3xl font-semibold mb-8">Approve Students</h1>
+    <h1 class="text-3xl font-semibold mb-8">All Students</h1>
 
 
     <div class="grid grid-cols-1 gap-8 mb-8">
@@ -36,7 +36,6 @@
               <th>Full Names</th>
               <th>School</th>
               <th>Status</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -51,21 +50,12 @@
                   <td><?= $student['school'] ?></td>
                   <td>
                     <?php if ($student['is_approved'] == 0): ?>
-                      <span class="rounded-lg text-sm py-2 px-3 text-orange-600 bg-orange-100 border border-orange-600">Pending</span>
+                      <span class="rounded-lg text-sm py-1 px-3 text-orange-600 bg-orange-100 border border-orange-600">Pending</span>
+                    <?php else: ?>
+                      <span class="rounded-lg text-sm py-1 px-3 text-green-600 bg-green-100 border border-green-600">Approved</span>
                     <?php endif ?>
                   </td>
-                  <td>
-                    <?php if ($student['is_approved'] == 0): ?>
-                      <a href="<?= baseUrl('admin/approve_student.php?student_id=' . $student['id']) ?>" class="bg-green-700  py-2 px-3 rounded-lg text-white my-3 block w-fit flex items-center justify-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6" viewBox="0 0 16 16">
-                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                          <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                        </svg>
-
-                        <span>Approve</span>
-                      </a>
-                    <?php endif ?>
-                  </td>
+                  
                 </tr>
 
               <?php endforeach ?>
@@ -78,7 +68,6 @@
               <th>Full Names</th>
               <th>School</th>
               <th>Status</th>
-              <th>Action</th>
             </tr>
           </tfoot>
         </table>
