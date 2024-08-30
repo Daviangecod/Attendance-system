@@ -54,7 +54,7 @@ if (mysqli_num_rows($userResult) == 1) {
                         <input type="hidden" name="userID" value="<?= $user['id'] ?>">
 
                         <div class="mb-3">
-                            <label for="email" class="block mb-3">Email Address <span class="bg-red-500 px-3 py-1 rounded text-white text-sm inline-block ms-4">You will need to carry out email verification</span></label>
+                            <label for="email" class="block mb-3">Email Address </label>
                             <input type="email" name="email" id="email" class="border border-slate-300 rounded-lg px-3 py-2 w-full placeholder:italic " placeholder="Type email" value="<?= $user['email'] ?>" />
                         </div>
 

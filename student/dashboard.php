@@ -1,6 +1,58 @@
 <?php require_once "./templates/header.php" ?>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<?php
+
+    $userID = $_SESSION['loginID'];
+    $student = [];
+    $presence = [];
+    $absence = [];
+    $batch = [];
+    $attendances = [];
+
+    $sQuery = "SELECT * FROM students WHERE user_id = $userID";
+    $sResult = mysqli_query($connection, $sQuery);
+
+    if(mysqli_num_rows($sResult) == 1) {
+        $student = mysqli_fetch_assoc($sResult);
+    }
+
+    $studentID = $student['id'];
+    $studentBatch = $student['batch_id'];
+
+    if($studentBatch !== NULL) {
+      $bQuery = "SELECT * FROM batches WHERE id = $studentBatch";
+      $bResult = mysqli_query($connection, $bQuery);
+
+      if(mysqli_num_rows($bResult) == 1) {
+          $batch = mysqli_fetch_assoc($bResult);
+      }
+    }
+
+    $pQuery = "SELECT COUNT(*) AS total_presence FROM student_attendance WHERE student_id = $studentID AND is_present = 1";
+    $pResult = mysqli_query($connection, $pQuery);
+
+    if(mysqli_num_rows($pResult) > 0){
+        $presence = mysqli_fetch_assoc($pResult);
+    }
+
+    $aQuery = "SELECT COUNT(*) AS total_absence FROM student_attendance WHERE student_id = $studentID AND is_present = 0";
+    $aResult = mysqli_query($connection, $aQuery);
+
+    if(mysqli_num_rows($aResult) > 0){
+        $absence = mysqli_fetch_assoc($aResult);
+    }
+
+
+    $atQuery = "SELECT * FROM student_attendance WHERE student_id = $studentID ORDER BY id DESC";
+    $atResult = mysqli_query($connection, $atQuery);
+
+    if(mysqli_num_rows($atResult) > 0){
+        $attendances = mysqli_fetch_all($atResult, MYSQLI_ASSOC);
+    }
+
+    $totalPresence = $presence['total_presence'];
+    $totalAbsence = $absence['total_absence'];
+?>
 
 <!-- component -->
 <div class="min-h-screen bg-gray-50/50">
@@ -99,9 +151,9 @@
       </div>
     </section>
 
-    <div class="grid grid-cols-1">
+    <div class="grid grid-cols-1 mb-10">
 
-      <div class="min-h-[500px] bg-white shadow rounded-lg border-b-4 border-b-primary py-8 px-8 overflow-x-auto">
+      <div class="min-h-fit bg-white shadow rounded-lg border-b-4 border-b-primary py-8 px-8 overflow-x-auto">
 
         <div class="flex items-center gap-4 mb-8">
           <h2 class="text-3xl font-semibold">Your Attendance</h2>
@@ -112,7 +164,6 @@
             <tr>
               <th>Full Names</th>
               <th>Status</th>
-              <th>Note</th>
               <th>Marked Date</th>
             </tr>
           </thead>
@@ -131,7 +182,6 @@
                       <span class="rounded-lg text-sm py-2 px-3 text-green-600 bg-green-100 border border-green-600">Present</span>
                     <?php endif ?>
                   </td>
-                  <td><?= $attendance['note'] ?></td>
                   <td><?= date('l dS F Y', strtotime($attendance['marked_date'])) ?></td>
                 </tr>
 
@@ -144,7 +194,6 @@
             <tr>
               <th>Full Names</th>
               <th>Status</th>
-              <th>Note</th>
               <th>Marked Date</th>
             </tr>
           </tfoot>

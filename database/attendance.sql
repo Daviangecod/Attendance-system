@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2024 at 06:39 PM
+-- Generation Time: Aug 30, 2024 at 07:57 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -66,6 +66,7 @@ INSERT INTO `batches` (`id`, `name`, `created_at`) VALUES
 CREATE TABLE `students` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `batch_id` int(11) UNSIGNED DEFAULT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `date_of_birth` date NOT NULL,
@@ -77,8 +78,9 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `user_id`, `first_name`, `last_name`, `date_of_birth`, `school`, `created_at`) VALUES
-(1, 9, 'Jean', 'Gray', '2002-08-14', 'CITEC', '2024-08-28 16:38:20');
+INSERT INTO `students` (`id`, `user_id`, `batch_id`, `first_name`, `last_name`, `date_of_birth`, `school`, `created_at`) VALUES
+(1, 9, NULL, 'Jean', 'Gray', '2002-08-14', 'CITEC', '2024-08-28 16:38:20'),
+(2, 10, NULL, 'Jean', 'Gray', '2024-08-22', 'CITECs', '2024-08-29 23:52:20');
 
 -- --------------------------------------------------------
 
@@ -116,7 +118,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `is_admin`, `email`, `gender`, `password`, `created_at`) VALUES
 (8, 0, 'test@email.com', 'male', '$2y$10$BP3GQnrgH60hGdN2ExQ1COkKwHGGWuhOhXRFtinoMwcgKpjHrJkhi', '2024-08-28 14:05:00'),
 (9, 0, 'iiiasd@email.com', 'male', '$2y$10$fpYpq9YAfygC.a/NnrLjHexdLMgkfmcSGCkVSPWb1M3xtdLbxADUy', '2024-08-28 14:06:17'),
-(10, 0, 'jeangray@gmail.com', 'female', '$2y$10$nHjL5yZeRZudRQkBNxYHFOsfall4izoWcBr1rEYNRRcPGNKvV2OnC', '2024-08-28 14:09:25');
+(10, 0, 'jeangray@gmail.com', 'female', '$2y$10$8VcV9fTRpazViuPhDBrOqORBfUXoddiMnRjp68JKGO1VMk6ztquSG', '2024-08-28 14:09:25');
 
 --
 -- Indexes for dumped tables
@@ -172,7 +174,7 @@ ALTER TABLE `batches`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student_attendance`
