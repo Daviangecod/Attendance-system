@@ -10,8 +10,25 @@
             </div>
             <nav>
                 <ul class="flex items-center gap-2 md:gap-10">
+                <?php if(!isset($_SESSION['loginID'])): ?>
+
                     <li><a class="hover:text-[#f57359]" href="<?= baseUrl('auth/register_student.php') ?>">Student Registration</a></li>
                     <li><a class="py-3 px-2 text-white bg-[#f57158] rounded-lg text-center w-40" href="<?= baseUrl('auth/login.php') ?>">Login</a></li>
+
+                <?php else: ?>
+                            <?php if(isset($_SESSION['role']) && $_SESSION['role'] == "admin"): ?>
+                                <li><a class="hover:text-[#f57359]" href="<?= baseUrl('admin/action/logout.php') ?>">Logout</a></li>
+
+                                <a href="<?= baseUrl('admin/dashboard.php') ?>" class="py-3 px-2 text-white bg-[#f57158] rounded-lg text-center w-40">Dashboard</a>
+                            <?php endif ?>
+
+                            <?php if(isset($_SESSION['role']) && $_SESSION['role'] == "student"): ?>
+                                <li><a class="hover:text-[#f57359]" href="<?= baseUrl('student/action/logout.php') ?>">Logout</a></li>
+
+                                <a href="<?= baseUrl('student/dashboard.php') ?>" class="py-3 px-2 text-white bg-[#f57158] rounded-lg text-center w-40">Dashboard</a>
+                             <?php endif ?>
+
+                <?php endif ?>
                 </ul>
             </nav>
         </div>
