@@ -36,6 +36,7 @@
     <h2 class="sr-only">Main tools</h2>
     <div class="container mx-auto mt-10 flex justify-between items-center gap-14">
             <img class="w-[100px]" src="<?= baseUrl('assets/images/HTML5_logo.png') ?>" alt="HTML Logo">
+            <img class="w-[160px]" src="<?= baseUrl('assets/images/js.png') ?>" alt="Javascript Logo">
             <img class="w-[300px]" src="<?= baseUrl('assets/images/tailwindcss-logotype.svg') ?>" alt="Tailwindcss Logo">
             <img class="w-[100px]" src="<?= baseUrl('assets/images/php-logo.svg') ?>" alt="PHP Logo">
             <img class="w-[150px]" src="<?= baseUrl('assets/images/Mysql_logo.png') ?>" alt="MySQL Logo">

@@ -20,8 +20,9 @@
       <div class="bg-gray-100 flex space-x-4 items-center justify-center h-screen">
 
         <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
-          <h2 class="text-2xl font-bold mb-6 text-center">We are sorry to see you leave</h2>
-          <p class="text-gray-700 mb-6 text-center">Thank you for visiting. We hope to see you again soon!</p>
+          <img src="<?= baseUrl('student/assets/images/eschosys.webp') ?>" alt="Logo" class="block mx-auto w-36 mb-3">
+          <h2 class="text-2xl font-bold mb-6 text-center">Logout Notice</h2>
+          <p class="text-gray-700 mb-6 text-center">Are you sure you want to logout?</p>
           <div class="flex justify-center">
               <a href="./action/logout.php" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40" color="#000000" fill="none">
