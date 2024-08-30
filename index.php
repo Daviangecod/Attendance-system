@@ -11,7 +11,7 @@
             <nav>
                 <ul class="flex items-center gap-2 md:gap-10">
                     <li><a class="hover:text-[#f57359]" href="<?= baseUrl('auth/register_student.php') ?>">Student Registration</a></li>
-                    <li><a class="py-3 px-2 text-white bg-[#f57158] rounded-lg text-center w-40" href="<?= baseUrl('auth/login_student.php') ?>">Login</a></li>
+                    <li><a class="py-3 px-2 text-white bg-[#f57158] rounded-lg text-center w-40" href="<?= baseUrl('auth/login.php') ?>">Login</a></li>
                 </ul>
             </nav>
         </div>

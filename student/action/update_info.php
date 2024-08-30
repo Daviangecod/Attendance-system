@@ -45,7 +45,7 @@ else {
            
                    if($result) {
                         session_start();
-                        $_SESSION['fullName'] = ucwords($firstName . " " . $lastName);
+                        $_SESSION['fullname'] = ucwords($firstName . " " . $lastName);
                        redirect(baseUrl("student/profile.php"), ["success" => "student_info_updated"]);
                    }else {
                        redirect(baseUrl("student/profile.php"), ["error" => "student_info_not_updated"]);

@@ -7,7 +7,7 @@
 
         <h1 class="text-3xl font-semibold mb-8 text-center">Login to your account</h1>
 
-            <form action="<?= baseUrl('auth/action/auth_student.php') ?>" method="POST">
+            <form action="<?= baseUrl('auth/action/authenticate.php') ?>" method="POST">
 
                 <div class="mb-3">
                     <label for="email">Email Address</label>
