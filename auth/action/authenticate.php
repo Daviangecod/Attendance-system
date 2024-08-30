@@ -72,9 +72,9 @@ else {
                                 session_start();
 
                                 $_SESSION['loginID'] = $user['id'];
-                                $_SESSION['username'] = $user['username'];
+                                $userId = $user['id'];
 
-
+             
                                  // Get admins first and last name and save in the session
 
                                  $query = "SELECT * FROM admins WHERE user_id = $userId";
