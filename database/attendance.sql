@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2024 at 10:37 AM
+-- Generation Time: Aug 30, 2024 at 11:34 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -77,6 +77,7 @@ CREATE TABLE `students` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `date_of_birth` date NOT NULL,
+  `is_approved` tinyint(1) NOT NULL DEFAULT 0,
   `school` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -85,9 +86,9 @@ CREATE TABLE `students` (
 -- Dumping data for table `students`
 --
 
-INSERT INTO `students` (`id`, `user_id`, `batch_id`, `first_name`, `last_name`, `date_of_birth`, `school`, `created_at`) VALUES
-(1, 9, NULL, 'Jean', 'Gray', '2002-08-14', 'CITEC', '2024-08-28 16:38:20'),
-(2, 10, NULL, 'Black', 'Gray', '2024-08-22', 'CITECs', '2024-08-29 23:52:20');
+INSERT INTO `students` (`id`, `user_id`, `batch_id`, `first_name`, `last_name`, `date_of_birth`, `is_approved`, `school`, `created_at`) VALUES
+(1, 9, NULL, 'Jean', 'Gray', '2002-08-14', 0, 'CITEC', '2024-08-28 16:38:20'),
+(2, 10, 2, 'Black', 'Gray', '2024-08-22', 1, 'CITECs', '2024-08-29 23:52:20');
 
 -- --------------------------------------------------------
 
